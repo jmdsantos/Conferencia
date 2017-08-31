@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pesquisarJogo.Controle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +16,17 @@ namespace Conferencia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            //Carrega parametros de inicialização para  a tela de pesquisa
+            Parametros param = new Parametros();
+            param.Arquivo = @"C:\Projetos\teste.txt";
+            param.Delimitador = "#";
+            param.JogoInicio = "0010";
+            param.JogoFim = "0020";
+            param.NoJogo = "0011";
+
+            //Para os parametros
+            Application.Run(new Pesquisar(param));
         }
     }
 }
